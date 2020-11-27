@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+  <head>
+
+
+</head>
+
+<body>
+<section>
+<h1>contact detail</h1>
+<div class="card" th:if=${contact}>
+<div class="card-body" >
+<h1 class="text-center">Your Contacts</h1>
+
+<div class="container text-center">
+
+<img src="" style="height: 200px; width: 200px;" class="my_pic" th:src="@{'/img/'+${contact.image}}" alt="profile pic" />
+<h3> <span th:text="${contact.name}"></span><span th:text="${contact.nickname}"></span></h3>;
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col"><th: span="contact.cId"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Phone</th>
+      <td><span th:text="${contact.phone}"></span> </td>
+      
+  </tbody>
+</table> 
+<div class="container">
+<a th:href="@{'/user/delete/'+${contact.cId}}" class="btn btn-block btn btn-danger btn-sm">Delete</a>
+     <form method="post" th:action="@{'/user/update-contact/'+${contact.cId}}" >
+      <button type="submit" class="btn btn-block btn btn-info btn-sm mt-2">Update</button>
+      </form>
+       
+</div>
+</div>
+
+</div>
+</div>
+<div class="container text-center bg-warning "> 
+<h1 th:unless="${contact}">You don't have permission to see this contact</h1>
+</div>
+</section>
+</body>
+</html>

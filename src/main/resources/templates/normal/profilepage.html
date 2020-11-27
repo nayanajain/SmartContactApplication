@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+ <head>
+</head>
+<body>
+<section>
+<div class="card">
+<div class="card-body text-center">
+<table class="table">
+<img alt="profile pic" src=""  th:src="@{'/img/'+${user.imageUrl}}">
+
+<h1 class="text-center" th:text="${user.name}"></h1>
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col"><span th:text ="${user.id}"></span></th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Phone</th>
+      <td><span th:text="${user.role}"></span> </td>
+      </tr>
+  </tbody>  
+   <tbody>
+    <tr>
+      <th scope="row">About</th>
+      <td><span th:text="${user.about}"></span> </td>
+      </tr>
+  </tbody>
+  
+</table> 
+</div>
+</div>
+</section>
+</body>
+</html>
